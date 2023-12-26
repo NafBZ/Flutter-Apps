@@ -10,6 +10,13 @@ This Repository Contains Basic Flutter Apps. Please go to each project's directo
   <img src="dice_roll/assets/githubImage/four.png" alt="Image 2" width="200" />
 </p>
 
+
+[1. Quiz Me](https://github.com/NafBZ/Flutter_projects/tree/master/try_app)
+
+![Quiz App GIF](./Resources/quiz.gif)
+
+
+
 This repo is under development.
 
 <p align="center">

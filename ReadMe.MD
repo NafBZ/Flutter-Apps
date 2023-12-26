@@ -13,7 +13,11 @@ This Repository Contains Basic Flutter Apps. Please go to each project's directo
 
 [1. Quiz Me](https://github.com/NafBZ/Flutter_projects/tree/master/try_app)
 
-![Quiz App GIF](./Resources/quiz.gif)
+<p align="center">
+  ![Quiz App GIF](./Resources/quiz.gif)
+</p>
+
+
 
 
 

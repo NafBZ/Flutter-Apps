@@ -5,9 +5,9 @@ This Repository Contains Basic Flutter Apps. Please go to each project's directo
 [1. Dice Game](https://github.com/NafBZ/Flutter_projects/tree/master/dice_roll)
 
 <p align="center">
-  <img src="dice-roll/assets/githubImage/three.png" alt="Image 1" width="200" />
+  <img src="dice_roll/assets/githubImage/three.png" alt="Image 1" width="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="dice-roll/assets/githubImage/four.png" alt="Image 2" width="200" />
+  <img src="dice_roll/assets/githubImage/four.png" alt="Image 2" width="200" />
 </p>
 
 This repo is under development.

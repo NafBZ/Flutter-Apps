@@ -1,4 +1,5 @@
 import 'package:budget_management/widgets/add_expense.dart';
+import 'package:budget_management/widgets/chart/chart.dart';
 import 'package:budget_management/widgets/expenses_list/expenses_list.dart';
 import 'package:budget_management/models/expense.dart';
 import 'package:flutter/material.dart';
@@ -15,26 +16,26 @@ class Expenses extends StatefulWidget {
 class _Expenses extends State<Expenses> {
   final List<Expense> _expeneseList = [
     Expense(
-      title: 'Office Materials',
-      amount: 500.00,
+      title: 'Laptop',
+      amount: 110.00,
       date: DateTime.now(),
       category: Category.work,
     ),
     Expense(
-      title: 'Spain Visit',
-      amount: 200.00,
+      title: 'Transportation',
+      amount: 23.00,
       date: DateTime.now(),
       category: Category.travel,
     ),
     Expense(
-      title: 'Paella',
-      amount: 50.00,
+      title: 'Fish and Chips',
+      amount: 12.00,
       date: DateTime.now(),
       category: Category.food,
     ),
     Expense(
-      title: 'Go to Bangladesh',
-      amount: 800.00,
+      title: 'Ibiza',
+      amount: 200.00,
       date: DateTime.now(),
       category: Category.vacation,
     ),
@@ -46,6 +47,28 @@ class _Expenses extends State<Expenses> {
     });
   }
 
+  void _removeExpense(Expense expense) {
+    final expenseIndex = _expeneseList.indexOf(expense);
+    setState(() {
+      _expeneseList.remove(expense);
+    });
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        content: const Text('Item Removed'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              _expeneseList.insert(expenseIndex, expense);
+            });
+          },
+        ),
+      ),
+    );
+  }
+
   void _openAddExpenseOverLay() {
     showModalBottomSheet(
         isScrollControlled: true,
@@ -55,11 +78,21 @@ class _Expenses extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text('No items are present in the expense list'),
+    );
+
+    if (_expeneseList.isNotEmpty) {
+      mainContent = ExpensesList(
+        expenses: _expeneseList,
+        onRemove: _removeExpense,
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
           'Budget Manager',
-          style: TextStyle(color: Color.fromARGB(255, 23, 107, 135)),
         ),
         actions: [
           IconButton(
@@ -72,10 +105,10 @@ class _Expenses extends State<Expenses> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Expenses Chart'),
+          Chart(expenses: _expeneseList),
           Expanded(
-            child: ExpensesList(expenses: _expeneseList),
-          )
+            child: mainContent,
+          ),
         ],
       ),
     );

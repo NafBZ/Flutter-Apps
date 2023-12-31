@@ -44,12 +44,10 @@ class _NewExpense extends State<NewExpense> {
         builder: (ctx) => AlertDialog(
           title: Text(
             'Invalid Input',
-            style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 21, 71, 82),
-                fontWeight: FontWeight.bold),
+            style: GoogleFonts.lato(fontWeight: FontWeight.bold),
           ),
           content: Text(
-            'No fields should be empty',
+            'Please input correct value',
             style: GoogleFonts.lato(fontWeight: FontWeight.w400),
           ),
           actions: [
@@ -59,9 +57,7 @@ class _NewExpense extends State<NewExpense> {
               },
               child: Text(
                 'Okay',
-                style: GoogleFonts.lato(
-                    color: const Color.fromARGB(255, 21, 71, 82),
-                    fontWeight: FontWeight.bold),
+                style: GoogleFonts.lato(fontWeight: FontWeight.bold),
               ),
             )
           ],
@@ -95,12 +91,12 @@ class _NewExpense extends State<NewExpense> {
             controller: _inputTitleController,
             maxLength: 50,
             keyboardType: TextInputType.text,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               label: Text(
                 'Title',
-                style: GoogleFonts.actor(fontWeight: FontWeight.normal),
               ),
             ),
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(),
           ),
           const SizedBox(
             height: 2,
@@ -108,18 +104,19 @@ class _NewExpense extends State<NewExpense> {
           Row(
             children: [
               Expanded(
-                  child: TextField(
-                controller: _inputExpenseController,
-                maxLength: 10,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  prefixText: '€ ',
-                  label: Text(
-                    'Expense',
-                    style: GoogleFonts.actor(fontWeight: FontWeight.normal),
+                child: TextField(
+                  controller: _inputExpenseController,
+                  maxLength: 10,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    prefixText: '€ ',
+                    label: Text(
+                      'Expense',
+                    ),
                   ),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(),
                 ),
-              )),
+              ),
               const SizedBox(
                 width: 16,
               ),
@@ -132,7 +129,10 @@ class _NewExpense extends State<NewExpense> {
                     _selectedDate == null
                         ? 'No date selected'
                         : formatter.format(_selectedDate!),
-                    style: GoogleFonts.actor(fontWeight: FontWeight.normal),
+                    style: GoogleFonts.lato(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 16,
+                    ),
                   ),
                   IconButton(
                       onPressed: _inputDatePicker,
@@ -151,7 +151,10 @@ class _NewExpense extends State<NewExpense> {
                         value: category,
                         child: Text(
                           category.name.toUpperCase(),
-                          style: GoogleFonts.actor(fontWeight: FontWeight.w400),
+                          style:
+                              Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                  ),
                         ),
                       ),
                     )
@@ -173,8 +176,9 @@ class _NewExpense extends State<NewExpense> {
                 child: Text(
                   'Cancel',
                   style: GoogleFonts.lato(
-                      color: const Color.fromARGB(255, 21, 71, 82),
-                      fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
                 ),
               ),
               ElevatedButton(
@@ -182,8 +186,9 @@ class _NewExpense extends State<NewExpense> {
                 child: Text(
                   'Save',
                   style: GoogleFonts.lato(
-                      color: const Color.fromARGB(255, 21, 71, 82),
-                      fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
                 ),
               ),
             ],

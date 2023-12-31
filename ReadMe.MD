@@ -2,6 +2,12 @@
 
 This Repository Contains Basic Flutter Apps. Please go to each project's directory to read the specific readme file. All the instructions and visualization are there to run those projects.
 
+[Budget Management](https://github.com/NafBZ/Flutter_projects/tree/master/budget_management)
+
+<p align="center">
+<img src="./Resources/budget.gif" alt="Budget App GIF" width="200" />
+</p>
+
 [Quiz Me](https://github.com/NafBZ/Flutter_projects/tree/master/try_app)
 
 <p align="center">
